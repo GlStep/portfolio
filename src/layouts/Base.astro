@@ -1,0 +1,52 @@
+---
+import '../styles/portfolio.css';
+import Pointcloud from '../components/Pointcloud.svelte';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Portfolio — Creative Technologist',
+  description = 'Selected work in real-time graphics, 3D and the web.',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader">
+    <div class="big">000</div>
+    <div class="lbl">Loading<br/>pointcloud</div>
+    <div class="barwrap">
+      <div class="barline"><i></i></div>
+      <div class="lbl" style="display:flex;justify-content:space-between;">
+        <span>Portfolio — 2026</span><span>Initialising WebGL</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixed backdrop -->
+  <Pointcloud client:load />
+  <div class="bg-veil"></div>
+  <div class="frame"><span class="v"></span><span class="v"></span></div>
+  <div class="progress"></div>
+  <div class="counter"><span class="lab">Hero</span> — <b>00</b> / 05</div>
+
+  <slot />
+
+  <script>
+    import '../scripts/animations';
+  </script>
+</body>
+</html>

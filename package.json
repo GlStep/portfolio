@@ -14,7 +14,9 @@
   "dependencies": {
     "@astrojs/svelte": "^8.1.2",
     "astro": "^6.4.2",
+    "gsap": "^3.15.0",
     "svelte": "^5.56.1",
+    "three": "^0.184.0",
     "typescript": "^6.0.3"
   }
 }
